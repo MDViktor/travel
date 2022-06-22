@@ -7,6 +7,7 @@ body {
   width: auto;
   height: 3735px;
   background: #FFFFFF;
+  margin:  0;
 
 }
 
@@ -20,12 +21,9 @@ body>.container {
 }
 
 header {
-  box-sizing: border-box;
+  
   position: relative;
 
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   width: 100%;
   height: 90px;
   left: 0px;
@@ -35,6 +33,28 @@ header {
   box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
 }
 
+.container_header {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
+  width: auto;
+  height: 90px;
+  margin-left: 120px;
+  margin-right: 120px;
+
+}
+
+.navigation {
+  display: block;
+}
+
+.logo_header {
+  display: flex;
+}
+
 .nav_list {
   
   list-style: none;
@@ -42,11 +62,13 @@ header {
   align-items: flex-start;
   justify-content: space-around;
   gap: 42px;
+  padding: 0px;
+
 }
 
 .nav_item>a {
   text-decoration: none;
-  font-family: 'Red Hat Text';
+  font-family: 'Red Hat Text', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -55,7 +77,14 @@ header {
 
   color: #FFFFFF;
 }
+
+.logo_header>img {
+  padding-right: 6px;
+}
+
 .hspan {
+  width: 180px;
+  height: 31px;
 
   font-family: 'Magra';
   font-style: normal;
@@ -73,11 +102,11 @@ button{
   height: 41px;
 }
 .enter {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 10px 229px;
   gap: 10px;
 
 }
