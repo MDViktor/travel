@@ -154,3 +154,76 @@ button{
 
   color: #FFFFFF;
 }
+
+.preview_text {
+  position: absolute;
+width: 723px;
+height: 24px;
+left: 120px;
+top: 346px;
+
+font-family: 'Aleo';
+font-style: italic;
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+
+color: #FFFFFF;
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px;
+  gap: 10px;
+
+  position: absolute;
+  width: 892px;
+  height: 95px;
+  left: 120px;
+  top: 416px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+}
+
+.search>input {
+  position: absolute;
+  width: 560px;
+  height: 22px;
+  top: 32px;
+  left: 41px;
+  padding: 0;
+  border: 0;
+
+  background: transparent;
+  font-family: 'Aleo';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: #F2785C;
+  
+}
+
+.search_button {
+  position: absolute;
+  padding: 10px 32px;
+  gap: 10px;
+  width: 228px;
+  height: 59px;
+  left: 646px;
+  top: 18px;
+  background: #0D606F;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+  border: 0;
+
+  font-family: 'Red Hat Text', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  text-transform: capitalize;
+
+  color: #FFFFFF;
+}
