@@ -156,11 +156,10 @@ button{
   width: 892px;
   height: 422px;
   left: 120px;
-  top: 122px;
-  padding: 0;
-  margin: 0;
-
-  font-family: 'Aleo', sans-serif;
+  top: 32px;
+  margin: 0px;
+ 
+  font-family: 'Aleo';
   font-style: normal;
   font-weight: 700;
   font-size: 80px;
@@ -171,18 +170,19 @@ button{
 
 .preview_text {
   position: absolute;
-width: 723px;
-height: 24px;
-left: 120px;
-top: 346px;
+  width: 723px;
+  height: 24px;
+  left: 120px;
+  top: 256px;
+  margin: 0px;
 
-font-family: 'Aleo';
-font-style: italic;
-font-weight: 700;
-font-size: 20px;
-line-height: 24px;
+  font-family: 'Aleo';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
 
-color: #FFFFFF;
+  color: #FFFFFF;
 }
 .search {
   display: flex;
@@ -195,7 +195,7 @@ color: #FFFFFF;
   width: 892px;
   height: 95px;
   left: 120px;
-  top: 416px;
+  top: 326px;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 16px;
 }
