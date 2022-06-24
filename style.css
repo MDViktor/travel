@@ -117,19 +117,22 @@ header {
 
   color: #FFFFFF;
 }
+.enter {
+  display: flex;
+  align-items: center;
+  width: 103px;
+  height: 100%;
+  margin-left: 37px;
+}
+
 button{
   position: relative;
   box-sizing: border-box;
   width: 103px;
   height: 41px;
-
+  
 }
 
-.enter {
-  width: 103px;
-  height: 41px;
-  margin-left: 37px;
-}
 
 .login {
   text-transform: capitalize;
