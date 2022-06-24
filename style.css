@@ -7,6 +7,12 @@ html {
   
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
 body {
   width: 1440px;
   height: 3735px;
@@ -57,14 +63,24 @@ header {
 
 .navigation {
   display: block;
+  position: absolute;
+  width: 527px;
+  height: 21px;
+  left: 494px;
+  top: 35px;
 }
 
 .logo_header {
   display: flex;
+  position: absolute;
+  width: 216px;
+  height: 31px;
+  top: 25px;
+
 }
 
 .nav_list {
-  
+  margin: 0;
   list-style: none;
   display: flex;
   align-items: flex-start;
@@ -111,12 +127,15 @@ button{
 }
 
 .enter {
-  position: relative;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  position: absolute;
+  left: 1217px;
+  top: 25px;
 
 }
 
@@ -207,6 +226,7 @@ button{
   top: 32px;
   left: 41px;
   padding: 0;
+  padding-top: 3px;
   border: 0;
 
   font-family: 'Aleo', sans-serif;
