@@ -4,10 +4,10 @@ html {
   justify-content: center;
   background: black;
   z-index: -20;
-  
 }
 
 * {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
   border: 0;
@@ -18,7 +18,7 @@ body {
   height: 3735px;
   background: #FFFFFF;
   margin: 0;
- 
+  overflow: hidden;
 
 }
 
@@ -30,15 +30,13 @@ body>.container {
   flex-direction: column;
   margin: 0 auto;
   z-index: 10;
-  
-
+  padding: 0;
 }
 
 header {
-  
   position: relative;
   z-index: 20;
-  width: 100%;
+  width: 1440px;
   height: 90px;
   left: 0px;
   top: 0px;
@@ -48,46 +46,44 @@ header {
 }
 
 .container_header {
-  box-sizing: border-box;
   display: flex;
-  flex: 1 1 auto;
   justify-content: space-between;
-  align-items: center;
-  vertical-align: middle;
-  width: auto;
+  flex: 1 1 auto;
+  position: relative;
+  max-width: 1230px;
+  width: 100%;
   height: 90px;
-  margin-left: 120px;
-  margin-right: 120px;
-
+  left: 0px;
+  top: 0px;
+  margin: 0px auto;
+  padding: 0px 15px;
 }
 
 .navigation {
-  display: block;
-  position: absolute;
+  display: flex;
+  position: relative;
   width: 527px;
   height: 21px;
-  left: 494px;
-  top: 35px;
+  margin: 0;
 }
 
 .logo_header {
   display: flex;
-  position: absolute;
+  align-items: center;
   width: 216px;
-  height: 31px;
-  top: 25px;
+  height: 100%;
 
 }
 
 .nav_list {
-  margin: 0;
   list-style: none;
   display: flex;
   align-items: flex-start;
-  justify-content: space-around;
-  gap: 42px;
+  justify-content: space-between;
   padding: 0px;
-
+  margin: 0;
+  width: 527px;
+  height: 21px;
 }
 
 .nav_item>a {
@@ -103,12 +99,11 @@ header {
 }
 
 .logo_header>img {
-  padding-right: 6px;
+  margin-top: -6px;
 }
 
 .hspan {
   width: 180px;
-  height: 31px;
 
   font-family: 'Magra';
   font-style: normal;
@@ -116,27 +111,22 @@ header {
   font-size: 32px;
   line-height: 39px;
   text-transform: capitalize;
+  margin-left: 6px;
 
   color: #FFFFFF;
-
 }
 button{
+  position: relative;
   box-sizing: border-box;
   width: 103px;
   height: 41px;
+  left: 1217px;
+  top: 25px;
 }
 
 .enter {
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  position: absolute;
-  left: 1217px;
-  top: 25px;
-
+  width: 103px;
+  height: 41px;
 }
 
 .login {
