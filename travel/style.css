@@ -261,19 +261,20 @@ main {
 }
 
 .search_button {
-  position: absolute;
-  padding: 10px 32px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
+  margin-right: 18px;
   width: 228px;
   height: 59px;
-  left: 646px;
-  top: 18px;
   background: #0D606F;
   box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
   border-radius: 10px;
   border: 0;
 
-  font-family: 'Red Hat Text', sans-serif;
+  font-family: 'Red Hat Text';
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -391,9 +392,6 @@ main {
 }
 
 .destinations_header {
-  width: 501px;
-  height: 53px;
-
   font-family: 'Red Hat Text';
   font-style: normal;
   font-weight: 500;
@@ -513,8 +511,7 @@ main {
 }
 
 .stories_header {
-  width: 335px;
-  height: 53px;
+
   left: 552px;
   margin-bottom: 50px;
 
@@ -645,9 +642,10 @@ main {
 }
 
 .rights {
+  text-align: justify;
   font-family: 'Red Hat Text';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 16px;
   line-height: 21px;
 
@@ -661,8 +659,8 @@ main {
   padding: 0px;
   gap: 19px;
 
-  width: 140.96px;
-  height: 33.65px;
+  width: 141px;
+  height: 34px;
   list-style: none;
 }
 
