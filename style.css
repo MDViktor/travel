@@ -94,11 +94,17 @@ header {
   line-height: 21px;
 }
 
-.nav_item>a {
+.nav_link {
   text-decoration: none;
   text-transform: capitalize;
 
   color: #FFFFFF;
+}
+
+.nav_link:hover {
+  transition: 0.3s;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  
 }
 
 .logo_header>img {
@@ -126,14 +132,12 @@ header {
   margin-left: 37px;
 }
 
-button{
+button {
   position: relative;
   box-sizing: border-box;
   width: 103px;
-  height: 41px;
-  
+  height: 41px;  
 }
-
 
 .login {
   text-transform: capitalize;
@@ -149,6 +153,13 @@ button{
   border-style: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
   border-radius: 10px;
+}
+
+button:hover {
+  transition: 0.3s;
+  background: #157080;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25), 4px 2px 5px rgba(13, 96, 111, 0.16);
+  cursor: pointer;
 }
 
 .h_background {
@@ -227,14 +238,13 @@ main {
 }
 
 .search>input {
-  position: absolute;
+  position: relative;
   width: 560px;
   height: 22px;
-  top: 32px;
-  left: 41px;
-  padding: 0;
-  padding-top: 3px;
+  padding: 1px 0px 0px 41px;
   border: 0;
+  border-style: none;
+  outline: none;
 
   font-family: 'Aleo', sans-serif;
   font-style: italic;
@@ -243,6 +253,7 @@ main {
   line-height: 29px;
 
   background: transparent;
+  color: #F2785C;
 }
 
 .search>input::placeholder {
@@ -336,6 +347,15 @@ main {
   border-radius: 16px;
 }
 
+.step_logo:hover {
+  width: 110px;
+  height: 110px;
+  background: #f24b26;
+  transition: 0.3s;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
 .step_1 {
   position: relative;
   width: 247px;
@@ -363,8 +383,7 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: auto;
-  margin-top: 430px;
+  margin: 430px auto auto;
   overflow: hidden;
   height: 1042px;
 
@@ -436,6 +455,12 @@ main {
   border-radius: 10px;
 }
 
+.slide_dot:hover {
+  background: #F2785C;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
 .slide_dot_main {
   width: 20px;
   height: 20px;
@@ -446,6 +471,11 @@ main {
   order: 0;
   flex-grow: 0;
   border-radius: 10px;
+}
+
+.slide_dot_main:hover {
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .destinations_menu {
@@ -512,6 +542,12 @@ main {
   filter: drop-shadow(0px 4px 4px #0D606F);
 }
 
+.stories_article:hover {
+  transition: 0.3s;
+  box-shadow: 2px 6px 6px 6px rgba(13, 96, 111, 0.5);
+  border-radius: 16px;
+}
+
 .stories_article_text {
   position: relative;
 
@@ -542,7 +578,7 @@ main {
   margin-top: 24px;
 }
 
-.stories_article_text>a {
+.article_link {
   position: relative;
   top: -40px;
 
@@ -553,6 +589,11 @@ main {
   line-height: 24px;
 
   color: #0D606F;
+}
+
+.article_link:hover {
+  transition: 0.3s;
+  color: #F2785C;
 }
 
 .stories_menu {
@@ -639,4 +680,14 @@ main {
   width: 140.96px;
   height: 33.65px;
   list-style: none;
+}
+
+.production_image:hover {
+  transition: 0.3s;
+  filter: brightness(150%);
+}
+
+.social_network_image:hover {
+  transition: 0.3s;
+  filter: drop-shadow(0px 0px 6px #FFFFFF); 
 }
