@@ -392,9 +392,6 @@ main {
 }
 
 .destinations_header {
-  width: 501px;
-  height: 53px;
-
   font-family: 'Red Hat Text';
   font-style: normal;
   font-weight: 500;
@@ -514,8 +511,7 @@ main {
 }
 
 .stories_header {
-  width: 335px;
-  height: 53px;
+
   left: 552px;
   margin-bottom: 50px;
 
