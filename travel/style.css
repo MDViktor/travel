@@ -372,14 +372,14 @@ main {
 .step_1 {
   position: relative;
   width: 247px;
-  height: 154px;
+  /* height: 154px; */
   top: 0px;
 }
 
 .step_2 {
   position: relative;
   width: 222px;
-  height: 154px;
+  /* height: 154px; */
   top: 0px;
   margin-left: 70px;
 }
@@ -387,7 +387,7 @@ main {
 .step_3 {
   position: relative;
   width: 317px;
-  height: 154px;
+  /* height: 154px; */
   top: 0px;
 }
 
