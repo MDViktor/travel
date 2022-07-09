@@ -76,16 +76,47 @@
     padding: 0px 4px 15px 0px;
   }
 
-  .preview {
+ .preview {
+  left: 0px;
+  top: 0px;
+ }
+
+  .main_header {
     display: none;
   }
 
   .preview_text {
-    width: 100%;
+    display: none;
   }
 
   .search {
-    width: 100%;
+    width: 360px;
+    height: 48px;
+    top: 52px;
+    margin: 0px auto;
+  }
+
+  .search>input {
+    padding: 2px 0px 0px 16px;
+
+    font-family: 'Aleo';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  
+  .search_button {
+    min-width: 92px;
+    width: 92px;
+    height: 30px;
+    margin-right: 9px;
+
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 15px;
   }
 
   .stories_article {
