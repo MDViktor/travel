@@ -195,6 +195,59 @@
     text-align: right;
   }
 
+  .destinations {
+    margin: 0px auto;
+    width: 360px;
+    height: 289px;
+  }
+
+  .destinations_header {
+    padding: 20px 0px;
+    
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .slide {
+    width: 360px;
+    height: 210px;
+    margin: 0px;
+  }
+
+  #slide_front,
+    #slide_right {
+      display: none;
+    }
+  
+  .slide_name {
+    width: 60px;
+    height: 26px;
+    left: calc(50% - 60px/2 - 135px);
+    top: calc(50% - 26px/2 - 82.5px);
+    
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .slide_map {
+    width: 36px;
+  }
+  .slide_dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .slide_dot_main {
+    width: 8px;
+    height: 8px;
+  }
+
   .stories_article {
     width: 100%;
   }
