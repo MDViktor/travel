@@ -426,6 +426,10 @@ main {
   border-radius: 16px;
 }
 
+.slide_image_mobile {
+  display: none;
+}
+
 .slide_name {
   position: absolute;
   width: 108px;
@@ -453,7 +457,7 @@ main {
   height: 20px;
 }
 
-.slide_dot {
+.slide_dot_left, .slide_dot_right {
   width: 20px;
   height: 20px;
 
@@ -465,7 +469,7 @@ main {
   border-radius: 10px;
 }
 
-.slide_dot:hover {
+.slide_dot_left:hover, .slide_dot_right:hover {
   background: #F2785C;
   transition: 0.3s;
   cursor: pointer;
@@ -486,6 +490,10 @@ main {
 .slide_dot_main:hover {
   transition: 0.3s;
   cursor: pointer;
+}
+
+.destinations_arrows {
+  display: none;
 }
 
 .destinations_menu {

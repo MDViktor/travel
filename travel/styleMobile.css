@@ -198,7 +198,7 @@
   .destinations {
     margin: 0px auto;
     width: 360px;
-    height: 289px;
+    height: 309px;
   }
 
   .destinations_header {
@@ -217,8 +217,16 @@
     margin: 0px;
   }
 
-  #slide_front,
-    #slide_right {
+  .slide_image_mobile {
+    display: block;
+    border-radius: 16px;
+  }
+
+  #slide_front, #slide_right {
+    display: none;
+  }
+
+  .slide_image {
       display: none;
     }
   
@@ -237,8 +245,18 @@
 
   .slide_map {
     width: 36px;
+    top: -20px;
+    gap: 6px;
   }
-  .slide_dot {
+
+  .slide_dot_left {
+    width: 8px;
+    height: 8px;
+
+    background: #F2785C;
+  }
+
+  .slide_dot_right {
     width: 8px;
     height: 8px;
   }
@@ -246,6 +264,72 @@
   .slide_dot_main {
     width: 8px;
     height: 8px;
+    background: rgba(242, 120, 92, 0.5);
+  }
+
+  .destinations_arrows {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    
+    width: 360px;
+    top: -127px;
+    padding: 0px 11px;
+  }
+
+  .destination_arrow_left {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+  }
+
+  .destination_arrow_right {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 30px;
+    height: 30px;
+  }
+
+  .destinations_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 92px;
+    height: 30px;
+    top: -28px;
+    left: 0px;
+    padding: 7.5px 0px;
+
+    border-radius: 10px;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 15px;
+    color: #FFFFFF;
+  }
+
+  .destinations_menu>img {
+    width: 10px;
+    height: 10px;
+  }
+
+  .stories {
+    margin: 20px auto;
+    top: 0px;
+  }
+
+  .stories_header {
+    margin-bottom: 10px;
+
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
   }
 
   .stories_article {
