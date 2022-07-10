@@ -530,6 +530,10 @@ main {
   top: 80px;
 }
 
+.stories_image_mobile {
+  display: none;
+}
+
 .stories_header {
 
   left: 552px;
