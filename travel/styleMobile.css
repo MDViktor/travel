@@ -366,7 +366,12 @@
   
   .stories_article_text_content {
     width: 195px;
-    height: 102px;
+    height: 87px;
+    white-space: nowrap;
+    overflow: visible hidden;
+    
+
+    text-overflow: ellipsis;
 
     margin-top: 10px;
   }
@@ -390,6 +395,22 @@
     font-weight: 700;
     font-size: 9px;
     line-height: 11px;
+  }
+
+  .stories_menu {
+    width: 92px;
+    height: 30px;
+
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  .stories_menu>img {
+    width: 10px;
+    height: 10px;
   }
 
 };
