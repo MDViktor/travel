@@ -11,6 +11,7 @@
   }
   
   header {
+    position: relative;
     width: 390px;
     border-radius: 30px;
     background: none;
@@ -64,7 +65,7 @@
     display: none;
   }
   
-  .burger_menu {
+  .burger_menu_button {
     display: flex;
     background: transparent;
     justify-content: end;
@@ -72,10 +73,61 @@
     padding: 0px 4px 15px 0px;
   }
 
+  .burger_menu {
+    display: block;
+    position: absolute;
+    width: 165px;
+    height: 250px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 220px;
+    z-index: 50;
+
+    background: #F2785C;
+    box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
+    border-radius: 10px;
+  }
+
+  .burger_exit_button {
+    width: 30px;
+    height: 30px;
+    top: 8px;
+    left: 8px;
+    background: transparent;
+  }
+
+.burger_navigation {
+  position: relative;
+  top: 14px;
+  left: 44px;
+}
+
+  .nav_list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    width: 106px;
+
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+
+    color: #FFFFFF;
+  }
+
+  .main_container {
+    position: relative;
+  }
+
  .preview {
   height: 161px;
   left: 0px;
   top: 0px;
+  margin-left: 0px;
  }
 
   .main_header {
@@ -87,10 +139,12 @@
   }
 
   .search {
+    position: relative;
     width: 360px;
     height: 48px;
     top: 52px;
     margin: 0px auto;
+    z-index: 10;
   }
 
   .search>input {
