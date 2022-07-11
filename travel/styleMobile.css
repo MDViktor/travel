@@ -234,7 +234,7 @@
     width: 60px;
     height: 26px;
     left: calc(50% - 60px/2 - 135px);
-    top: calc(50% - 26px/2 - 82.5px);
+    top: calc(50% - 26px/2 - 84.5px);
     
     font-family: 'Red Hat Text';
     font-style: normal;
@@ -439,4 +439,20 @@
     border-radius: 0px 0px 30px 30px;
   }
 
+  .footer {
+    top: 0px;
+    height: 65px;
+  }
+
+  .production {
+    display: none;
+  }
+
+  .rights {
+    display: none;
+  }
+
+  .social_networks {
+    padding: 0px 0px 1px 8px;
+  }
 };
