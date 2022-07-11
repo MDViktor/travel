@@ -654,6 +654,10 @@ main {
   z-index: 0;
 }
 
+.f_background_mobile {
+  display: none;
+}
+
 .footer {
   display: flex;
   justify-content: space-around;
