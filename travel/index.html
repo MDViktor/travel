@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleMobile.css">
     <link rel="icon" href="./images/logo.ico">
     <link href="https://fonts.googleapis.com/css?family=Magra:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Red+Hat+Text:regular,500" rel="stylesheet">
@@ -32,9 +33,29 @@
         <div class="enter">
           <button class="login">login</button>
         </div>
+        <button class="burger_menu_button" id="burgerButton">
+          <img src="./images/burger_menu_button.svg" alt="burger_menu_button">
+        </button>
+        <script src="./burger.js"></script>
+        <div class="burger_menu">
+          <button class="burger_exit_button">
+            <img src="./images/burger_menu_exit.svg" alt="burger_menu_exit">
+          </button>
+          <nav class="burger_navigation">
+            <ul class="nav_list">
+              <li class="nav_item"><a href="#howitworks" class="nav_link">how it works</a></li>
+              <li class="nav_item"><a href="#planyourtrip" class="nav_link">plan your trip</a></li>
+              <li class="nav_item"><a href="#destinations" class="nav_link">destinations</a></li>
+              <li class="nav_item"><a href="#travelstories" class="nav_link">travel stories</a></li>
+              <li class="nav_item"><a href="#account" class="nav_link">account</a></li>
+              <li class="nav_item"><a href="#socialmedia" class="nav_link">social media</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
     <img class="h_background" src="./images/h_background.jpg" alt="h_background">
+    <img class="h_background_mobile" src="./images/h_background_mobile.jpg" alt="h_background_mobile">
     <main>
       <div class="main_container">
         <section class="preview" id="howitworks">
@@ -73,23 +94,34 @@
         <section class="destinations" id="destinations">
           <H2 class="destinations_header">POPULAR DESTINATIONS</H2>
           <div class="slider">
-            <div class="slide">
+            <div class="slide" id="slide_left">
               <img src="./images/slide_image_1.jpg" alt="slide_image_1" class="slide_image">
+              <img src="./images/slide_image_mobile_1.jpg" alt="slide_image_mobile_1.jpg" class="slide_image_mobile">
               <span class="slide_name">SPAIN</span>
             </div>
-            <div class="slide">
+            <div class="slide" id="slide_front">
               <img src="./images/slide_image_2.jpg" alt="slide_image_2" class="slide_image">
+              <img src="./images/slide_image_mobile_2.jpg" alt="slide_image_mobile_2.jpg" class="slide_image_mobile">
               <span class="slide_name">JAPAN</span>
             </div>
-            <div class="slide">
+            <div class="slide" id="slide_right">
               <img src="./images/slide_image_3.jpg" alt="slide_image_3" class="slide_image">
+              <img src="./images/slide_image_mobile_3.jpg" alt="slide_image_mobile_3.jpg" class="slide_image_mobile">
               <span class="slide_name">USA</span>
             </div>
           </div>
           <div class="slide_map">
-            <div class="slide_dot"></div>
+            <div class="slide_dot_left"></div>
             <div class="slide_dot_main"></div>
-            <div class="slide_dot"></div>
+            <div class="slide_dot_right"></div>
+          </div>
+          <div class="destinations_arrows">
+            <div class="destination_arrow_left">
+              <img src="./images/destinations_mobile_arrowL.svg" alt="destinations_mobile_arrowL.svg">
+            </div>
+            <div class="destination_arrow_right">
+              <img src="./images/destinations_mobile_arrowR.svg" alt="destinations_mobile_arrowR.svg">
+            </div>
           </div>
           <button class="destinations_menu">
             <img src="./images/arrow_right_menu_img.svg" alt="destination_menu_img">
@@ -101,7 +133,8 @@
             TRAVEL STORIES
           </h2>
           <article class="stories_article">
-            <img src="./images/stories_article_image_1.jpg" alt="stories_article_image_1">
+            <img src="./images/stories_article_image_1.jpg" alt="stories_article_image_1" class="stories_image">
+            <img src="./images/stories_article_image_mobile_1.jpg" alt="stories_article_image_mobile_1" class="stories_image_mobile">
             <div class="stories_article_text">
               <h3 class="stories_article_text_header">10 Photos of Attractive Thailand</h3>
               <p class="stories_article_text_content">
@@ -111,7 +144,8 @@
             </div>
           </article>
           <article class="stories_article">
-            <img src="./images/stories_article_image_2.jpg" alt="stories_article_image_2">
+            <img src="./images/stories_article_image_2.jpg" alt="stories_article_image_2" class="stories_image">
+            <img src="./images/stories_article_image_mobile_2.jpg" alt="stories_article_image_mobile_2" class="stories_image_mobile">
             <div class="stories_article_text">
               <h3 class="stories_article_text_header">Canyonlands National Park, Utah</h3>
               <p class="stories_article_text_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
@@ -119,7 +153,8 @@
             </div>
           </article>
           <article class="stories_article">
-            <img src="./images/stories_article_image_3.jpg" alt="stories_article_image_3">
+            <img src="./images/stories_article_image_3.jpg" alt="stories_article_image_3" class="stories_image">
+            <img src="./images/stories_article_image_mobile_3.jpg" alt="stories_article_image_mobile_3" class="stories_image_mobile">
             <div class="stories_article_text">
               <h3 class="stories_article_text_header">I left my heart in the Mountains!</h3>
               <p class="stories_article_text_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
@@ -127,7 +162,8 @@
             </div>
           </article>
           <article class="stories_article">
-            <img src="./images/stories_article_image_4.jpg" alt="stories_article_image_4">
+            <img src="./images/stories_article_image_4.jpg" alt="stories_article_image_4" class="stories_image">
+            <img src="./images/stories_article_image_mobile_4.jpg" alt="stories_article_image_mobile_4" class="stories_image_mobile">
             <div class="stories_article_text">
               <h3 class="stories_article_text_header">The Longest journey in my life!</h3>
               <p class="stories_article_text_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
@@ -142,6 +178,7 @@
       </div>
     </main>
     <img class = "f_background" src="./images/f_background.jpg" alt="footer_background">
+    <img class = "f_background_mobile" src="./images/f_background_mobile.jpg" alt="footer_background_mobile">
   </div>  
   <footer class="footer">
     <div class="production">
