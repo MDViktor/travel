@@ -75,7 +75,9 @@
 
   .burger_menu {
     display: block;
-    position: absolute;
+    position: fixed;
+    transform: translateX(110%);
+    transition: transform 0.2s;
     width: 165px;
     height: 250px;
     top: 0px;
