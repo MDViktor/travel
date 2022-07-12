@@ -15,6 +15,21 @@
     <title>Travel</title>
 </head>
 <body>
+  <div class="burger_menu">
+    <button class="burger_exit_button">
+      <img src="./images/burger_menu_exit.svg" alt="burger_menu_exit">
+    </button>
+    <nav class="burger_navigation">
+      <ul class="nav_list">
+        <li class="nav_item"><a href="#howitworks" class="nav_link">how it works</a></li>
+        <li class="nav_item"><a href="#planyourtrip" class="nav_link">plan your trip</a></li>
+        <li class="nav_item"><a href="#destinations" class="nav_link">destinations</a></li>
+        <li class="nav_item"><a href="#travelstories" class="nav_link">travel stories</a></li>
+        <li class="nav_item"><a href="#account" class="nav_link">account</a></li>
+        <li class="nav_item"><a href="#socialmedia" class="nav_link">social media</a></li>
+      </ul>
+    </nav>
+  </div>
   <div class="container">
     <header class="header">
       <div class="container_header">
@@ -36,22 +51,6 @@
         <button class="burger_menu_button" id="burgerButton">
           <img src="./images/burger_menu_button.svg" alt="burger_menu_button">
         </button>
-        <script src="./burger.js"></script>
-        <div class="burger_menu">
-          <button class="burger_exit_button">
-            <img src="./images/burger_menu_exit.svg" alt="burger_menu_exit">
-          </button>
-          <nav class="burger_navigation">
-            <ul class="nav_list">
-              <li class="nav_item"><a href="#howitworks" class="nav_link">how it works</a></li>
-              <li class="nav_item"><a href="#planyourtrip" class="nav_link">plan your trip</a></li>
-              <li class="nav_item"><a href="#destinations" class="nav_link">destinations</a></li>
-              <li class="nav_item"><a href="#travelstories" class="nav_link">travel stories</a></li>
-              <li class="nav_item"><a href="#account" class="nav_link">account</a></li>
-              <li class="nav_item"><a href="#socialmedia" class="nav_link">social media</a></li>
-            </ul>
-          </nav>
-        </div>
       </div>
     </header>
     <img class="h_background" src="./images/h_background.jpg" alt="h_background">
@@ -192,7 +191,7 @@
       </ul>
     </div>
     <div class="rights">All Rights Reserved © Travel Portal</div>
-    <div class="social_networks">
+    <div id="socialmedia" class="social_networks">
       <ul class="social_networks_list">
         <li class="social_network"><a class="social_network_link" target="_blank" href="https://www.instagram.com/rsschool_news/">
           <img class="social_network_image" src="./images/instagram_logo.svg" alt="instagram_logo">
@@ -207,5 +206,6 @@
     </div>
   </footer>
   <script src="index.js"></script>
+  <script src="./burger.js"></script>
 </body>
 </html>
