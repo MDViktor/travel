@@ -1,17 +1,8 @@
-// const burgerMenu = document.querySelector(".burger_menu");
-// // const menuItems = document.querySelectorAll(".nav_link");
-// const burgerButton= document.querySelector(".burger_menu_button");
-// const burger_exit_button= document.querySelector(".burger_exit_button");
+const burgerMenu = document.querySelector(".burger_menu");
+const burgerButtonMenu = document.getElementById("burgerButton")
 
-
-// function toggleMenu() {
-//   if (burgerMenu.classList.contains("menuAppearance")) {
-//     burgerMenu.classList.remove("menuAppearance");
-//   } else {
-//     burgerMenu.classList.add("menuAppearance");
-//   }
-// }
-
-// burgerButton.addEventListener("click", toggleMenu);
+document.addEventListener('click', function(burgerButtonMenu) { 
+    burgerMenu.classList.toggle('menuAppearance');
+    })
 
 
