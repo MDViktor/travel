@@ -64,6 +64,10 @@
   .enter {
     display: none;
   }
+
+  .burger_menu_wrapper {
+    display: block;
+  }
   
   .burger_menu_button {
     width: 35px;
@@ -133,7 +137,8 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
-    width: 106px;
+    width: 111px;
+    height: 176px;
 
     font-family: 'Red Hat Text';
     font-style: normal;
