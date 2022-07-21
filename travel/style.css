@@ -104,8 +104,9 @@ header {
 }
 
 .nav_link:hover {
-  transition: 0.3s;
+  transition: 0.6s;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  filter: drop-shadow(0px 0px 6px #FFFFFF); 
   
 }
 
@@ -162,6 +163,122 @@ button:hover {
   background: #157080;
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25), 4px 2px 5px rgba(13, 96, 111, 0.16);
   cursor: pointer;
+}
+
+.pop_up_menu_wrapper {
+  display: block;  
+  /* later get none */
+}
+
+.pop_up_menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 650px;
+  height: 660px;
+  z-index: 50;
+
+  background: linear-gradient(177.09deg, #FFFFFF 6.15%, #0D606F 202.69%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+}
+
+.pop_up_head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 0px 15px 0px;
+}
+
+.pop_up_header {
+  width: 328px;
+  height: 38px;
+
+  font-family: 'Aleo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+
+  color: #0D606F;
+}
+
+.auto_login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+
+  padding: 15px 45px;
+}
+
+.facebook_continue {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  
+  background: #1877F2;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+
+  color: #FFFFFF;
+}
+
+.google_continue {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+
+  color: #0D606F;
+}
+
+.separator_or {
+  display: flex;
+  align-items: center;
+  padding: 0px 45px ;
+  gap: 9px;
+
+  font-family: 'Aleo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: rgba(13, 96, 111, 0.5);
+
+}
+
+.separator_line {
+  width: 100%;
+  height: 0px;
+  left: 344px;
+  top: 267px;
+
+  border: 0.5px solid rgba(13, 96, 111, 0.5);
 }
 
 .burger_menu_wrapper{

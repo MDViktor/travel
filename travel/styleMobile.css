@@ -135,6 +135,11 @@
     box-shadow: none;
   }
 
+  #burger_exit_button_id:hover {
+    transition: 0.6s;
+    filter: drop-shadow(0px 0px 6px #FFFFFF); 
+  }
+
   .burger_navigation {
     position: relative;
     width: 106px;
@@ -142,6 +147,12 @@
     
     top: 14px;
     left: 44px;
+  }
+
+  .nav_link:hover {
+    transition: 0.6s;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    filter: drop-shadow(0px 0px 6px #FFFFFF); 
   }
 
   .nav_list {
