@@ -275,8 +275,8 @@ button:hover {
 .separator_line {
   width: 100%;
   height: 0px;
-  left: 344px;
-  top: 267px;
+  /* left: 344px;
+  top: 267px; */
 
   border: 0.5px solid rgba(13, 96, 111, 0.5);
 }
@@ -285,6 +285,78 @@ button:hover {
   display: flex;
   flex-direction: column;
   padding: 15px 45px;
+  gap: 20px;
+}
+
+.eg_signature {
+  padding-bottom: 5px;
+
+  font-family: 'Aleo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #0D606F;
+}
+
+.eg_input {
+  width: 560px;
+  height: 54px;
+
+  background: #FFFFFF;
+  box-shadow: inset 0px 0px 3px rgba(13, 96, 111, 0.08), inset 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+}
+
+.sign_in_button {
+  width: 100%;
+  height: 54px;
+
+  background: #0D606F;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+
+  color: #FFFFFF;
+}
+
+.sign_in_enter {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 45px;
+  gap: 10px;
+  text-align: center;
+}
+
+.recovery_link {
+  width: 159px;
+  height: 18px;
+
+  font-family: 'Aleo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+
+  text-decoration-line: underline;
+
+  color: #0D606F;
+
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+}
+
+.pop_up_footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0px 45px;
 }
 
 .burger_menu_wrapper{
