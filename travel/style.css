@@ -281,6 +281,12 @@ button:hover {
   border: 0.5px solid rgba(13, 96, 111, 0.5);
 }
 
+.enter_group {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 45px;
+}
+
 .burger_menu_wrapper{
   display: none;
 }
