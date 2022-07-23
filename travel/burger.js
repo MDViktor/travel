@@ -4,6 +4,9 @@ const burgerWrapper = document.querySelector(".burger_menu_wrapper");
 const loginButton = document.querySelector(".login");
 const popUpWrapper = document.querySelector(".pop_up_menu_wrapper");
 const popUpMenu = document.querySelector(".pop_up_menu");
+const eMail = document.getElementById("user_e_mail");
+const password = document.getElementById("user_password");
+const signInButton = document.querySelector(".sign_in_button");
 
 
 burgerButtonMenu.addEventListener('click', function() {
@@ -29,4 +32,13 @@ const whereIclick = (event) => {
     popUpMenu.classList.toggle('menuAppearance');
   }
 }
-popUpWrapper.addEventListener('click', whereIclick)
+popUpWrapper.addEventListener('click', whereIclick);
+
+const textInput = (event) => {
+  let userEmail = eMail.value;
+  let userPassword = password.value;
+  let alertText = `E-mail: ${userEmail}\nPassword: ${userPassword}`;
+  alert(alertText);
+}
+
+signInButton.addEventListener('click', textInput);
