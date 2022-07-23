@@ -172,6 +172,10 @@
     color: #FFFFFF;
   }
 
+  .pop_up_menu_wrapper {
+    height: 1475px;
+  }
+
   .main_container {
     position: relative;
     z-index: 1;

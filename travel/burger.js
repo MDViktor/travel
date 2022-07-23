@@ -1,12 +1,15 @@
 const burgerMenu = document.querySelector(".burger_menu");
 const burgerButtonMenu = document.getElementById("burgerButton");
 const burgerWrapper = document.querySelector(".burger_menu_wrapper");
+const burgerExit = document.getElementById("burger_exit_button_id");
+const burgerMenuItems = document.querySelectorAll(".nav_link");
 const loginButton = document.querySelector(".login");
 const popUpWrapper = document.querySelector(".pop_up_menu_wrapper");
 const popUpMenu = document.querySelector(".pop_up_menu");
 const eMail = document.getElementById("user_e_mail");
 const password = document.getElementById("user_password");
 const signInButton = document.querySelector(".sign_in_button");
+const loginButtonMobile = document.getElementById("acc");
 
 
 burgerButtonMenu.addEventListener('click', function() {
@@ -14,25 +17,37 @@ burgerButtonMenu.addEventListener('click', function() {
   burgerMenu.classList.toggle('menuAppearance');
 })
 
-burgerWrapper.addEventListener('click', function() {
-  burgerWrapper.classList.remove('damping');
-  burgerMenu.classList.remove('menuAppearance');
-
-})
+const burgerWrapperClose = (event) => {
+  element = event.target;
+  console.log(element);
+  if (element !== burgerMenu) {
+    console.log(element);
+    burgerWrapper.classList.remove('damping');
+    burgerMenu.classList.remove('menuAppearance');
+  } 
+}
+burgerWrapper.addEventListener('click', burgerWrapperClose);
+burgerExit.addEventListener('click', burgerWrapperClose);
+burgerMenuItems.forEach(element => element.addEventListener('click', burgerWrapperClose));
 
 loginButton.addEventListener('click', function() {
   popUpWrapper.classList.toggle('damping');
   popUpMenu.classList.toggle('menuAppearance');
 })
 
-const whereIclick = (event) => {
+acc.addEventListener('click', function() {
+  popUpWrapper.classList.toggle('damping');
+  popUpMenu.classList.toggle('menuAppearance');
+})
+
+const closePopUp = (event) => {
   element = event.target;
   if (element ===popUpWrapper) {
     popUpWrapper.classList.toggle('damping');
     popUpMenu.classList.toggle('menuAppearance');
   }
 }
-popUpWrapper.addEventListener('click', whereIclick);
+popUpWrapper.addEventListener('click', closePopUp);
 
 const textInput = (event) => {
   let userEmail = eMail.value;
