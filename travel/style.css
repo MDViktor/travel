@@ -166,14 +166,24 @@ button:hover {
 }
 
 .pop_up_menu_wrapper {
-  display: block;  
+  display: block;
+  background: rgba(0, 0, 0, 0.3);
+  width: 1440px;
+  height: 3735px;
+  position: absolute;
+  z-index: 50;
+  transition: 0.6s;
+
   /* later get none */
 }
 
 .pop_up_menu {
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: relative;
+  margin: calc((100vh - 660px)/2) auto;
+  
+
   width: 650px;
   height: 660px;
   z-index: 50;
@@ -259,7 +269,7 @@ button:hover {
 .separator_or {
   display: flex;
   align-items: center;
-  padding: 0px 45px ;
+  padding: 15px 45px 10px;
   gap: 9px;
 
   font-family: 'Aleo';
@@ -284,12 +294,19 @@ button:hover {
 .enter_group {
   display: flex;
   flex-direction: column;
-  padding: 15px 45px;
+  padding: 0px 45px 15px;
   gap: 20px;
 }
 
+.e_mail, .password {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 .eg_signature {
-  padding-bottom: 5px;
+  width: 47px;
+  height: 19px;
 
   font-family: 'Aleo';
   font-style: normal;
@@ -356,7 +373,8 @@ button:hover {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 0px 45px;
+  padding: 16px 45px 0px;
+  gap: 20px;
 
   text-align: center;
 }
