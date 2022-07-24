@@ -213,6 +213,7 @@ button:hover {
 .pop_up_header {
   width: 328px;
   height: 38px;
+  text-align: center;
 
   font-family: 'Aleo';
   font-style: normal;

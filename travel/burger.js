@@ -10,6 +10,7 @@ const eMail = document.getElementById("user_e_mail");
 const password = document.getElementById("user_password");
 const signInButton = document.querySelector(".sign_in_button");
 const loginButtonMobile = document.getElementById("acc");
+const registerEnter = document.querySelector(".register_enter_link");
 
 
 burgerButtonMenu.addEventListener('click', function() {
@@ -42,7 +43,7 @@ loginButtonMobile.addEventListener('click', function() {
 
 const closePopUp = (event) => {
   element = event.target;
-  if (element ===popUpWrapper) {
+  if (element === popUpWrapper) {
     popUpWrapper.classList.toggle('damping');
     popUpMenu.classList.toggle('popUpMenuAppearance');
   }
@@ -57,3 +58,14 @@ const textInput = (event) => {
 }
 
 signInButton.addEventListener('click', textInput);
+
+registerEnter.addEventListener('click', function() {
+  document.querySelector(".pop_up_header").innerHTML = 'Create account';
+  document.querySelector(".auto_login").style.display = "none";
+  document.querySelector(".separator_or").style.display = "none";
+  document.querySelector(".sign_in_button").innerHTML = 'Sign Up';
+  document.querySelector(".recovery_link").style.display = "none";
+  document.querySelector(".register_enter").innerHTML = 'Already have an account?';
+  document.querySelector(".register_enter_link").innerHTML = 'Log in';
+  popUpMenu.style.height = "436px";
+})
