@@ -173,7 +173,112 @@
   }
 
   .pop_up_menu_wrapper {
+    width: 390px;
     height: 1475px;
+  }
+
+  .pop_up_menu {
+    margin: calc((100vh - 450px)/2) auto;;
+    transform: translateY(-150%);
+
+    width: 350px;
+    height: 450px;
+  }
+
+  .popUpMenuAppearance {
+    transform: translateY(0%);
+  }  
+
+  .pop_up_head {
+    text-align: center;
+    padding: 17px 0px 10px 0px;
+  }
+  
+  .pop_up_header {
+    height: 26px;
+    font-size: 22px;
+    line-height: 26px;
+  }
+  
+  .auto_login {
+    gap: 14px;
+    padding: 10px 45px;
+  }
+  
+  .facebook_continue {
+    height: 38px;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+  .google_continue {
+    height: 38px;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+  .separator_or {
+    padding: 10px 45px 7px;
+    gap: 6px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  
+  .enter_group {
+    padding: 0px 45px 10px;
+    gap: 14px;
+  }
+  
+  .e_mail, .password {
+    gap: 3px;
+  }
+  
+  .eg_signature {
+    height: 13px;
+    font-size: 11px;
+    line-height: 13px;
+  }
+  
+  .eg_input {
+    height: 37px;
+    font-size: 14px;
+    line-height: 18px;
+    text-indent: 12px;
+  }
+  
+  
+  .sign_in_button {
+    height: 37px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+  .sign_in_enter {
+    padding: 7px 45px;
+    gap: 7px;
+  }
+  
+  .recovery_link {
+    height: 13px;
+    font-size: 10px;
+    line-height: 13px;
+  }
+  
+  .pop_up_footer {
+    padding: 11px 45px 0px;
+    gap: 14px;
+  }
+  
+  .register_enter {
+    font-size: 10px;
+    line-height: 13px;
+  }
+  
+  .register_enter_link {
+    font-size: 10px;
+    line-height: 13px;
   }
 
   .main_container {

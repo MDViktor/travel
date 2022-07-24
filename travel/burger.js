@@ -32,19 +32,19 @@ burgerMenuItems.forEach(element => element.addEventListener('click', burgerWrapp
 
 loginButton.addEventListener('click', function() {
   popUpWrapper.classList.toggle('damping');
-  popUpMenu.classList.toggle('menuAppearance');
+  popUpMenu.classList.toggle('popUpMenuAppearance');
 })
 
-acc.addEventListener('click', function() {
+loginButtonMobile.addEventListener('click', function() {
   popUpWrapper.classList.toggle('damping');
-  popUpMenu.classList.toggle('menuAppearance');
+  popUpMenu.classList.toggle('popUpMenuAppearance');
 })
 
 const closePopUp = (event) => {
   element = event.target;
   if (element ===popUpWrapper) {
     popUpWrapper.classList.toggle('damping');
-    popUpMenu.classList.toggle('menuAppearance');
+    popUpMenu.classList.toggle('popUpMenuAppearance');
   }
 }
 popUpWrapper.addEventListener('click', closePopUp);
@@ -52,7 +52,7 @@ popUpWrapper.addEventListener('click', closePopUp);
 const textInput = (event) => {
   let userEmail = eMail.value;
   let userPassword = password.value;
-  let alertText = `E-mail: ${userEmail}\nPassword: ${userPassword}`;
+  let alertText = `     E-mail: ${userEmail}\nPassword: ${userPassword}`;
   alert(alertText);
 }
 
