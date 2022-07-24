@@ -13,6 +13,7 @@ const loginButtonMobile = document.getElementById("acc");
 const registerEnter = document.querySelector(".register_enter_link");
 
 
+
 burgerButtonMenu.addEventListener('click', function() {
   burgerWrapper.classList.toggle('damping');
   burgerMenu.classList.toggle('menuAppearance');
@@ -59,13 +60,32 @@ const textInput = (event) => {
 
 signInButton.addEventListener('click', textInput);
 
-registerEnter.addEventListener('click', function() {
+const toCreateAccount = () => {
   document.querySelector(".pop_up_header").innerHTML = 'Create account';
   document.querySelector(".auto_login").style.display = "none";
   document.querySelector(".separator_or").style.display = "none";
   document.querySelector(".sign_in_button").innerHTML = 'Sign Up';
   document.querySelector(".recovery_link").style.display = "none";
   document.querySelector(".register_enter").innerHTML = 'Already have an account?';
-  document.querySelector(".register_enter_link").innerHTML = 'Log in';
+  document.querySelector(".register_enter_link").innerHTML = ' Log in';
   popUpMenu.style.height = "436px";
-})
+}
+
+const toLoginAccount = () => {
+  document.querySelector(".pop_up_header").innerHTML = 'Log in to your account';
+  document.querySelector(".auto_login").style.display = "flex";
+  document.querySelector(".separator_or").style.display = "flex";
+  document.querySelector(".sign_in_button").innerHTML = 'Sign In';
+  document.querySelector(".recovery_link").style.display = "flex";
+  document.querySelector(".register_enter").innerHTML = 'Don’t have an account?';
+  document.querySelector(".register_enter_link").innerHTML = ' Register';
+  popUpMenu.style.height = "660px";
+}
+
+// if (getComputedStyle(popUpMenu, null).height === '660px') {
+//   registerEnter.addEventListener('click', toCreateAccount)
+// } else {
+//   console.log(1);
+//   registerEnter.addEventListener('click', toLoginAccount)
+// }
+
