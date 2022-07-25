@@ -21,9 +21,7 @@ burgerButtonMenu.addEventListener('click', function() {
 
 const burgerWrapperClose = (event) => {
   element = event.target;
-  console.log(element);
   if (element !== burgerMenu) {
-    console.log(element);
     burgerWrapper.classList.remove('damping');
     burgerMenu.classList.remove('menuAppearance');
   } 
@@ -82,10 +80,38 @@ const toLoginAccount = () => {
   popUpMenu.style.height = "660px";
 }
 
-// if (getComputedStyle(popUpMenu, null).height === '660px') {
-//   registerEnter.addEventListener('click', toCreateAccount)
-// } else {
-//   console.log(1);
-//   registerEnter.addEventListener('click', toLoginAccount)
-// }
+const toCreateAccountMobile = () => {
+  document.querySelector(".pop_up_header").innerHTML = 'Create account';
+  document.querySelector(".auto_login").style.display = "none";
+  document.querySelector(".separator_or").style.display = "none";
+  document.querySelector(".sign_in_button").innerHTML = 'Sign Up';
+  document.querySelector(".recovery_link").style.display = "none";
+  document.querySelector(".register_enter").innerHTML = 'Already have an account?';
+  document.querySelector(".register_enter_link").innerHTML = ' Log in';
+  popUpMenu.style.height = "297px";
+}
 
+const toLoginAccountMobile = () => {
+  document.querySelector(".pop_up_header").innerHTML = 'Log in to your account';
+  document.querySelector(".auto_login").style.display = "flex";
+  document.querySelector(".separator_or").style.display = "flex";
+  document.querySelector(".sign_in_button").innerHTML = 'Sign In';
+  document.querySelector(".recovery_link").style.display = "flex";
+  document.querySelector(".register_enter").innerHTML = 'Don’t have an account?';
+  document.querySelector(".register_enter_link").innerHTML = ' Register';
+  popUpMenu.style.height = "450px";
+}
+
+const mediaQuery = window.matchMedia('(max-width: 391px)')
+if (mediaQuery.matches) {
+  registerEnter.addEventListener('click', function(event) {
+    if (popUpMenu.clientHeight === 450) toCreateAccountMobile(event);
+    else toLoginAccountMobile(event);
+  })
+}
+else {
+  registerEnter.addEventListener('click', function(event) {
+    if (popUpMenu.clientHeight === 660) toCreateAccount(event);
+    else toLoginAccount(event);
+  })
+}
