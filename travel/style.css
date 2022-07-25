@@ -677,9 +677,17 @@ main {
   color: #F2785C;
 }
 
+.slider_window {
+  display: flex;
+  overflow: hidden;
+}
+
 .slider {
   display: flex;
   overflow: hidden;
+  position: relative;
+  left: 0px;
+  transition: all ease 1s;
 }
 
 .slide {
