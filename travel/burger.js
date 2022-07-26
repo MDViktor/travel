@@ -170,6 +170,9 @@ const getMoveRightMobile = (event) => {
     slider.style.left = offset + 'px';
     opacityDot = 0.5;
   }
+  if (-offset>(slideRight.clientWidth*2)){
+    offset = -(slideRight.clientWidth*2);
+  }
 }
 
 const getMove = (event) => {
