@@ -679,7 +679,6 @@ main {
 
 .slider_window {
   display: flex;
-  overflow: hidden;
 }
 
 .slider {

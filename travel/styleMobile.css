@@ -441,8 +441,8 @@
     border-radius: 16px;
   }
 
-  #slide_front, #slide_right {
-    display: none;
+  .slider_window {
+    width: 360px;
   }
 
   .slide_image {
@@ -473,17 +473,21 @@
     height: 8px;
 
     background: #F2785C;
+    opacity: 1;
   }
 
   .slide_dot_right {
     width: 8px;
     height: 8px;
+    background: #F2785C;
+    opacity: 0.5;
   }
 
   .slide_dot_main {
     width: 8px;
     height: 8px;
-    background: rgba(242, 120, 92, 0.5);
+    background: #F2785C;
+    opacity: 0.5;
   }
 
   .destinations_arrows {
