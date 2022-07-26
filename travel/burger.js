@@ -13,9 +13,11 @@ const loginButtonMobile = document.getElementById("acc");
 const registerEnter = document.querySelector(".register_enter_link");
 const slider = document.querySelector(".slider");
 const slideLeft = document.getElementById("slide_left");
+const slideFront = document.getElementById("slide_front");
 const slideRight = document.getElementById("slide_right");
 const slideLeftDot = document.querySelector(".slide_dot_left");
 const slideRightDot = document.querySelector(".slide_dot_right");
+const slideMainDot = document.querySelector(".slide_dot_main");
 let offset = 0;
 let opacityDot = 0.5;
 
@@ -109,37 +111,42 @@ const toLoginAccountMobile = () => {
 
 const getMoveLeft = (event) => {
   offset += (slideLeft.clientWidth + 60);
-  document.querySelector(".slide_dot_main").style.opacity = opacityDot;
+  slideMainDot.style.opacity = opacityDot;
   opacityDot += 0.5;
   if (offset > (slideLeft.clientWidth + 60)){
     offset = 0;
-    document.querySelector(".slide_dot_main").style.opacity = opacityDot;
+    slideMainDot.style.opacity = opacityDot;
     opacityDot = 0.5;
   }
   slideLeftDot.style.opacity = opacityDot;
   slider.style.left = offset + 'px';
 }
 
-// const getMoveLeftMobile = (event) => {
-//   offset += (slideLeft.clientWidth + 60);
-//   document.querySelector(".slide_dot_main").style.opacity = opacityDot;
-//   opacityDot += 0.5;
-//   if (offset > (slideLeft.clientWidth + 60)){
-//     offset = 0;
-//     document.querySelector(".slide_dot_main").style.opacity = opacityDot;
-//     opacityDot = 0.5;
-//   }
-//   slideLeftDot.style.opacity = opacityDot;
-//   slider.style.left = offset + 'px';
-// }
+const getMoveLeftMobile = (event) => {
+  if (offset < 0) {
+    offset += slideLeft.clientWidth;
+    console.log(opacityDot);
+    slideRightDot.style.opacity = opacityDot;
+    opacityDot += 0.5;
+    slideMainDot.style.opacity = opacityDot;
+    slider.style.left = offset + 'px';
+    opacityDot = 0.5;
+  }
+  if  (offset === 0) {
+    slideMainDot.style.opacity = opacityDot;
+    opacityDot += 0.5;
+    slideLeftDot.style.opacity = opacityDot;
+    opacityDot = 0.5;
+  }
+}
 
 const getMoveRight = (event) => {
   offset -= (slideRight.clientWidth + 60);
-  document.querySelector(".slide_dot_main").style.opacity = opacityDot;
+  slideMainDot.style.opacity = opacityDot;
   opacityDot += 0.5;
   if (offset < -(slideRight.clientWidth + 60)){
     offset = 0;
-    document.querySelector(".slide_dot_main").style.opacity = opacityDot;
+    slideMainDot.style.opacity = opacityDot;
     opacityDot = 0.5;
   }
   slideRightDot.style.opacity = opacityDot;
@@ -151,37 +158,44 @@ const getMoveRightMobile = (event) => {
   if (-offset <= slideRight.clientWidth){
     slideLeftDot.style.opacity = opacityDot;
     opacityDot += 0.5;
-    document.querySelector(".slide_dot_main").style.opacity = opacityDot;
+    slideMainDot.style.opacity = opacityDot;
     slider.style.left = offset + 'px';
+    opacityDot = 0.5;
   }
   if (-offset === (slideRight.clientWidth*2)){
     opacityDot = 0.5;
-    document.querySelector(".slide_dot_main").style.opacity = opacityDot;
+    slideMainDot.style.opacity = opacityDot;
     opacityDot += 0.5;
     slideRightDot.style.opacity = opacityDot;
     slider.style.left = offset + 'px';
+    opacityDot = 0.5;
   }
-  // if (-offset < (slideRight.clientWidth*2)){
-  //   offset = 0;
-  // }
-  
 }
 
 const getMove = (event) => {
   event.addEventListener('click',function (event) {
     if (slideLeft.contains(event.target)||slideLeftDot.contains(event.target)){
       getMoveLeft(event);
-    }
+    } 
     if (slideRight.contains(event.target)||slideRightDot.contains(event.target)) {
       getMoveRight(event);
+    }
+    if (slideFront.contains(event.target)||slideMainDot.contains(event.target)) {
+      if(slider.style.left === '860px'){
+        getMoveLeft(event);
+      }
+      else if (slider.style.left === '-860px'){
+        getMoveRight(event);
+      }
     }
   })
 }
 const arrowRight = document.querySelector(".destination_arrow_right");
+const arrowLeft = document.querySelector(".destination_arrow_left");
 const getMoveMobile = (event) => {
   event.addEventListener('click',function (event) {
-    if (slideLeft.contains(event.target)||slideLeftDot.contains(event.target)){
-      getMoveLeft(event);
+    if (arrowLeft.contains(event.target)){
+      getMoveLeftMobile(event);
     }
     if (arrowRight.contains(event.target)) {
       getMoveRightMobile(event);
@@ -196,6 +210,7 @@ if (mediaQuery.matches) {
     else toLoginAccountMobile(event);
   })
   getMoveMobile(arrowRight);
+  getMoveMobile(arrowLeft);
 }
 else {
   registerEnter.addEventListener('click', function(event) {
@@ -207,6 +222,8 @@ else {
   getMove(slideRight);
   getMove(slideLeftDot);
   getMove(slideRightDot);
+  getMove(slideFront);
+  getMove(slideMainDot);
 }
 
 
