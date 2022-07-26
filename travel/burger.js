@@ -11,7 +11,7 @@ const password = document.getElementById("user_password");
 const signInButton = document.querySelector(".sign_in_button");
 const loginButtonMobile = document.getElementById("acc");
 const registerEnter = document.querySelector(".register_enter_link");
-let offset = 0;
+// let offset = 0;
 const slider = document.querySelector(".slider");
 
 
@@ -118,31 +118,52 @@ else {
   })
 }
 
-// document.getElementById("slide_left").addEventListener('click', function () {
-//   offset += 800;
-//   if (offset > 800){
-//     offset = 0;
-//   }
-//   slider.style.left = offset + 'px';
-// });
+// const getMove = (event) => {
+//   event.addEventListener('click',function (event) {
+//     if (document.getElementById("slide_left").contains(event.target)){
+//       offset += (event.target.clientWidth + 60);
+//       if (offset > (event.target.clientWidth + 60)){
+//         offset = 0;
+//       }
+//       slider.style.left = offset + 'px';
+//     }
+//     else if (document.getElementById("slide_right").contains(event.target)) {
+//       offset -= (event.target.clientWidth + 60);
+//       if (offset < -(event.target.clientWidth + 60)){
+//         offset = 0;
+//       }
+//       slider.style.left = offset + 'px';
+//     }
+//   })
+// }
+// getMove(document.getElementById("slide_left"));
+// getMove(document.getElementById("slide_right"));
 
-const getMove = (event) => {
-  event.addEventListener('click',function (event) {
-    if (document.getElementById("slide_left").contains(event.target)){
-      offset += (event.target.clientWidth + 60);
-      if (offset > (event.target.clientWidth + 60)){
-        offset = 0;
-      }
-      slider.style.left = offset + 'px';
-    }
-    else if (document.getElementById("slide_right").contains(event.target)) {
-      offset -= (event.target.clientWidth + 60);
-      if (offset < -(event.target.clientWidth + 60)){
-        offset = 0;
-      }
-      slider.style.left = offset + 'px';
-    }
-  })
-}
-getMove(document.getElementById("slide_left"));
-getMove(document.getElementById("slide_right"));
+let slides = document.querySelectorAll(".slide_image");
+let sslider = [];
+
+// for (i=0; i<slides.length; i++) {
+//   sslider[i] = slides[i].src;
+//   slides[i].remove();
+// }
+// const init = (input, output) => {
+//   for (i=0; i<input.length; i++) {
+//     output[i] = input[i].src;
+//     input[i].remove();
+//   }
+// }
+// init(slides, sslider);
+
+// let step = 0;
+// let offset = 0;
+
+// function draw() {
+//   let img = document.createElement('img');
+//   img.src = sslider[step];
+//   img.classList.add('slide_image');
+//   img.style.left = offset*800 +'px';
+//   document.querySelector('.slide').appendChild(img);
+//   step++;
+//   offset = 1;
+// }
+// draw(); draw(); draw();
