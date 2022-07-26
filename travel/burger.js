@@ -148,19 +148,23 @@ const getMoveRight = (event) => {
 
 const getMoveRightMobile = (event) => {
   offset -= (slideRight.clientWidth);
-  slideLeftDot.style.opacity = opacityDot;
-  opacityDot += 0.5;
-  document.querySelector(".slide_dot_main").style.opacity = opacityDot;
-  if (offset < -(slideRight.clientWidth)){
+  if (-offset <= slideRight.clientWidth){
+    slideLeftDot.style.opacity = opacityDot;
+    opacityDot += 0.5;
     document.querySelector(".slide_dot_main").style.opacity = opacityDot;
-    opacityDot = 0.5;
+    slider.style.left = offset + 'px';
   }
-  if (offset < -(slideRight.clientWidth*2)){
-    offset = 0;
+  if (-offset === (slideRight.clientWidth*2)){
+    opacityDot = 0.5;
     document.querySelector(".slide_dot_main").style.opacity = opacityDot;
-    opacityDot = 0.5;
+    opacityDot += 0.5;
+    slideRightDot.style.opacity = opacityDot;
+    slider.style.left = offset + 'px';
   }
-  slider.style.left = offset + 'px';
+  // if (-offset < (slideRight.clientWidth*2)){
+  //   offset = 0;
+  // }
+  
 }
 
 const getMove = (event) => {
