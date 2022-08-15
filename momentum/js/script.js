@@ -17,6 +17,10 @@ const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
 const city = document.querySelector('.city');
 const weatherError = document.querySelector('.weather-error')
+// quotes 
+const quote = document.querySelector('.quote');
+const author = document.querySelector('.author');
+const changeQuote = document.querySelector('.change-quote');
 
 function showTime() {
   const date = new Date();
@@ -121,6 +125,20 @@ async function getWeather() {
   }
 }
 
+async function getQuotes() {  
+  const quotes = './js/quotes.json';
+  const res = await fetch(quotes);
+  const data = await res.json(); 
+  quoteNum = getRandomNum(0, 102);
+  for (let value in data){
+    console.log(data[value][quoteNum].quote, data[value][quoteNum].author);
+    quote.textContent = `"${data[value][quoteNum].quote}"`;
+    author.textContent = data[value][quoteNum].author;
+  }
+}
+
+
+getQuotes();
 showTime();
 setBg();
 
@@ -130,3 +148,4 @@ slidePrev.addEventListener('click', getSlidePrev);
 window.addEventListener('beforeunload', setLocalStorage);
 window.addEventListener('load', getLocalStorage);
 city.addEventListener('change', getWeather);
+changeQuote.addEventListener('click', getQuotes)
