@@ -21,6 +21,10 @@ const weatherError = document.querySelector('.weather-error')
 const quote = document.querySelector('.quote');
 const author = document.querySelector('.author');
 const changeQuote = document.querySelector('.change-quote');
+// audioplayer
+const play = document.querySelector('.play');
+const audio = new Audio();
+let isPlay = false;
 
 function showTime() {
   const date = new Date();
@@ -135,7 +139,24 @@ async function getQuotes() {
     author.textContent = data[value][quoteNum].author;
   }
 }
+// function playAudio() {
+//   audio.currentTime = 0;
+//   audio.play();
+// }
 
+
+function playAudio() {
+  play.classList.toggle('pause');
+  isPlay = true;
+  audio.src = "./assets/sounds/La valse dAmeli.mp3";
+  // audio.currentTime = 0;
+  if(play.classList.contains('pause')){
+    audio.play();
+  } else{
+    isPlay = false;
+    audio.pause();
+  }
+}
 
 getQuotes();
 showTime();
@@ -148,3 +169,4 @@ window.addEventListener('beforeunload', setLocalStorage);
 window.addEventListener('load', getLocalStorage);
 city.addEventListener('change', getWeather);
 changeQuote.addEventListener('click', getQuotes)
+play.addEventListener('click', playAudio);
