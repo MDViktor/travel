@@ -131,7 +131,6 @@ async function getQuotes() {
   const data = await res.json(); 
   quoteNum = getRandomNum(0, 102);
   for (let value in data){
-    console.log(data[value][quoteNum].quote, data[value][quoteNum].author);
     quote.textContent = `"${data[value][quoteNum].quote}"`;
     author.textContent = data[value][quoteNum].author;
   }
