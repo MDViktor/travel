@@ -2,39 +2,41 @@ const time = document.querySelector('.time');
 const date = document.querySelector('.date');
 const greeting = document.querySelector('.greeting');
 const userName = document.querySelector('.name');
+const body = document.querySelector('body');
+const slideNext = document.querySelector('.slide-next');
+const slidePrev = document.querySelector('.slide-prev');
+let RandomNum = getRandomNum(1, 20);
+
 
 function showTime() {
   const date = new Date();
   const currentTime = date.toLocaleTimeString();
   time.textContent = currentTime;
   showDate();
-  getTimeOfDay();
+  greeting.textContent = `Good ${getTimeOfDay()}`;
   setTimeout(showTime, 1000);
 }
-
 function showDate() {
   const text = new Date();
   const options = {weekday:'long', month: 'long', day: 'numeric'};
   const currentDate = text.toLocaleDateString('en-US', options);
   date.textContent = currentDate;
 }
-
 function getTimeOfDay() {
   const arg = new Date();
   const hours = arg.getHours();
   const shedule = {
     'night': [0, 1, 2, 3, 4, 5],
     'morning': [6, 7, 8, 9, 10, 11],
-    'day': [12, 13, 14, 15, 16, 17],
+    'afternoon': [12, 13, 14, 15, 16, 17],
     'evening': [18, 19, 20, 21, 22, 23]
   }
   for (let k in shedule){
     if (shedule[k].includes(hours)){
-      greeting.textContent = `Good ${k}`;
+      return k;
     }
   }
 }
-
 function setLocalStorage() {
   localStorage.setItem('name', userName.value);
 }
@@ -43,8 +45,47 @@ function getLocalStorage() {
     userName.value = localStorage.getItem('name');
   }
 }
+function getRandomNum(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+function setBg() {
+  const img = new Image();
 
-window.addEventListener('beforeunload', setLocalStorage)
-window.addEventListener('load', getLocalStorage)
+  const timeOfDay = getTimeOfDay();
+  let bgNum = String(RandomNum).padStart(2, 0);
+  const bgLink = `https://raw.githubusercontent.com/MDViktor/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`;
+
+  img.src = bgLink; 
+  img.onload = () => {      
+    body.style.backgroundImage = `url(${img.src})`;
+  };
+}
+
+function getSlideNext() {
+  if (RandomNum === 20) {
+    RandomNum = 1;
+  }
+  else {
+    RandomNum += 1;
+  }
+  setBg();
+}
+function getSlidePrev() {
+  if (RandomNum === 1) {
+    RandomNum = 20;
+  }
+  else {
+    RandomNum -= 1;
+  }
+  setBg();
+}
 
 showTime();
+setBg();
+
+slideNext.addEventListener('click', getSlideNext);
+slidePrev.addEventListener('click', getSlidePrev);
+window.addEventListener('beforeunload', setLocalStorage);
+window.addEventListener('load', getLocalStorage);
