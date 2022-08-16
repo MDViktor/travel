@@ -25,9 +25,19 @@ const author = document.querySelector('.author');
 const changeQuote = document.querySelector('.change-quote');
 // audioplayer
 const play = document.querySelector('.play');
+const nextTrack = document.querySelector('.play-next');
+const prevTrack = document.querySelector('.play-prev');
 const audio = new Audio();
 let isPlay = false;
-let playNum = 2;
+let playNum = 0;
+const playListContainer = document.querySelector('.play-list');
+for (let track of playList){
+  const li = document.createElement('li');
+  li.classList.add('play-item');
+  li.textContent = track.title;
+  playListContainer.append(li);
+}
+// const currentTrack = document.querySelector('.play-list');
 
 function showTime() {
   const date = new Date();
@@ -149,6 +159,7 @@ async function getQuotes() {
 
 
 function playAudio() {
+  console.log(playNum);
   play.classList.toggle('pause');
   isPlay = true;
   audio.src = playList[playNum].src;;
@@ -159,12 +170,29 @@ function playAudio() {
     isPlay = false;
     audio.pause();
   }
+  
+  playList.forEach(element => {
+    console.log(audio)//=== element.src);
+  });
+  
 }
 
-// function playNext() {
-//   playNum+=1;
-//   playAudio()
-// }
+function playNext() {
+  play.classList.toggle('pause');
+  playNum+=1;
+  if(playNum === (playList.length)){
+    playNum = 0;
+  }
+  playAudio()
+}
+function playPrev() {
+  play.classList.toggle('pause');
+  playNum-=1;
+  if(playNum < 0){
+    playNum = (playList.length-1);
+  }
+  playAudio()
+}
 
 
 
@@ -180,3 +208,5 @@ window.addEventListener('load', getLocalStorage);
 city.addEventListener('change', getWeather);
 changeQuote.addEventListener('click', getQuotes)
 play.addEventListener('click', playAudio);
+nextTrack.addEventListener('click', playNext);
+prevTrack.addEventListener('click', playPrev);
