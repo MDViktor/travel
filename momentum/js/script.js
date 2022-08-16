@@ -1,3 +1,5 @@
+import playList from './playList.js';
+console.log(playList);
 // date and clock
 const time = document.querySelector('.time');
 const date = document.querySelector('.date');
@@ -25,6 +27,7 @@ const changeQuote = document.querySelector('.change-quote');
 const play = document.querySelector('.play');
 const audio = new Audio();
 let isPlay = false;
+let playNum = 2;
 
 function showTime() {
   const date = new Date();
@@ -133,7 +136,7 @@ async function getQuotes() {
   const quotes = './js/quotes.json';
   const res = await fetch(quotes);
   const data = await res.json(); 
-  quoteNum = getRandomNum(0, 102);
+  let quoteNum = getRandomNum(0, 102);
   for (let value in data){
     quote.textContent = `"${data[value][quoteNum].quote}"`;
     author.textContent = data[value][quoteNum].author;
@@ -148,7 +151,7 @@ async function getQuotes() {
 function playAudio() {
   play.classList.toggle('pause');
   isPlay = true;
-  audio.src = "./assets/sounds/La valse dAmeli.mp3";
+  audio.src = playList[playNum].src;;
   // audio.currentTime = 0;
   if(play.classList.contains('pause')){
     audio.play();
@@ -157,6 +160,13 @@ function playAudio() {
     audio.pause();
   }
 }
+
+// function playNext() {
+//   playNum+=1;
+//   playAudio()
+// }
+
+
 
 getQuotes();
 showTime();
