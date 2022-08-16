@@ -13,14 +13,13 @@ const playList = [
       src: './assets/sounds/Krug Fraer.mp3',
     },
     {      
-      title: 'Aqua Caelestis',
-      src: './assets/sounds/Aqua Caelestis.mp3',
-      duration: '0:58'
+      title: 'John Debney Cobbler Main',
+      src: './assets/sounds/John Debney Cobbler Main.mp3',
     },  
     {      
-      title: 'River Flows In You',
-      src: './assets/sounds/River Flows In You.mp3',
-      duration: '3:50'
+      title: 'skofka pobarabanu',
+      src: './assets/sounds/skofka pobarabanu.mp3',
+      duration: '3:50',
     },
   ]
   export default playList;
