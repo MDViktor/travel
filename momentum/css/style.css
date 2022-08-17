@@ -57,6 +57,13 @@ body {
   opacity: 1;
 }
 
+.shine{
+  opacity: 1;
+  font-weight: 900;
+  filter: drop-shadow(0px 0px 6px  #C5B358); 
+  transition: 0.3s;
+}
+
 .play-item::before {
   content: "\2713";  
   position: absolute;
