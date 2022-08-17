@@ -1,5 +1,4 @@
 import playList from './playList.js';
-console.log(playList);
 // date and clock
 const time = document.querySelector('.time');
 const date = document.querySelector('.date');
@@ -37,7 +36,8 @@ for (let track of playList){
   li.textContent = track.title;
   playListContainer.append(li);
 }
-// const currentTrack = document.querySelector('.play-list');
+const currentTracks = document.querySelectorAll('.play-item');
+
 
 function showTime() {
   const date = new Date();
@@ -152,14 +152,16 @@ async function getQuotes() {
     author.textContent = data[value][quoteNum].author;
   }
 }
-// function playAudio() {
-//   audio.currentTime = 0;
-//   audio.play();
-// }
+function audioStyleRemove() {
+  currentTracks.forEach(element => {
+    if(element.textContent===playList[playNum].title){
+      element.classList.remove('shine');
+    }
+  });
+}
 
 
 function playAudio() {
-  console.log(playNum);
   play.classList.toggle('pause');
   isPlay = true;
   audio.src = playList[playNum].src;;
@@ -170,14 +172,22 @@ function playAudio() {
     isPlay = false;
     audio.pause();
   }
-  
-  playList.forEach(element => {
-    console.log(audio)//=== element.src);
+  currentTracks.forEach(element => {
+    if (isPlay){
+      if(element.textContent===playList[playNum].title){
+        element.classList.toggle('shine');
+      }
+    } else {
+      element.classList.remove('shine');
+    }
   });
-  
+  audio.onended = () =>{
+    audioStyleRemove();
+    playNext();
+  }
 }
-
 function playNext() {
+  audioStyleRemove();
   play.classList.toggle('pause');
   playNum+=1;
   if(playNum === (playList.length)){
@@ -186,6 +196,7 @@ function playNext() {
   playAudio()
 }
 function playPrev() {
+  audioStyleRemove();
   play.classList.toggle('pause');
   playNum-=1;
   if(playNum < 0){
