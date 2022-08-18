@@ -37,6 +37,9 @@ for (let track of playList){
   playListContainer.append(li);
 }
 const currentTracks = document.querySelectorAll('.play-item');
+// language
+const switcherLanguage = document.querySelector('.slider.round');
+let flague = true;
 
 
 function showTime() {
@@ -45,6 +48,9 @@ function showTime() {
   time.textContent = currentTime;
   showDate();
   greeting.textContent = `Good ${getTimeOfDay()}`;
+  // if (!flague) {
+  //   console.log('+');
+  // };
   setTimeout(showTime, 1000);
 }
 function showDate() {
@@ -204,12 +210,23 @@ function playPrev() {
   }
   playAudio()
 }
-
+console.log(flague);
+function switchLanguage(){
+  switcherLanguage.addEventListener('click', function() {
+    switcherLanguage.classList.toggle('ru');
+    if(switcherLanguage.classList.contains('ru')){
+      flague = false;
+    } else{
+      flague = true;
+    }
+  });
+}
 
 
 getQuotes();
 showTime();
 setBg();
+switchLanguage();
 
 document.addEventListener('DOMContentLoaded', getWeather);
 slideNext.addEventListener('click', getSlideNext);
