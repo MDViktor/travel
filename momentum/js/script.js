@@ -40,24 +40,47 @@ const currentTracks = document.querySelectorAll('.play-item');
 // language
 const switcherLanguage = document.querySelector('.slider.round');
 let flague = true;
-
-
+const language = {
+  en: {
+    greeting: `Good ${getTimeOfDay()}`, placeholder: `[Enter name]`, weatherPlaceholder:`[enter city name]`, windspeed: [`Wind speed: `, ` m/s`], humidity: [`Humidity: `, `%`], 
+  },
+  ru: {
+    greeting: getTimeOfDayRu(), placeholder: `[Введите имя]`, weatherPlaceholder:`[имя города]`, windspeed: [`Скорость ветра: `, ` м/с`], humidity: [`Влажность: `, `%`], 
+  },
+}
+function elseTranslate() {
+  if(flague){
+    userName.placeholder = language.en.placeholder;
+    city.placeholder = language.en.weatherPlaceholder;
+  } else {
+    userName.placeholder = language.ru.placeholder;
+    city.placeholder = language.ru.weatherPlaceholder;
+  }
+}
 function showTime() {
   const date = new Date();
   const currentTime = date.toLocaleTimeString();
   time.textContent = currentTime;
   showDate();
-  greeting.textContent = `Good ${getTimeOfDay()}`;
-  // if (!flague) {
-  //   console.log('+');
-  // };
+  if (flague){
+    greeting.textContent = language.en.greeting;
+  }else{
+    greeting.textContent = language.ru.greeting
+  }
   setTimeout(showTime, 1000);
 }
+
 function showDate() {
   const text = new Date();
   const options = {weekday:'long', month: 'long', day: 'numeric'};
+
   const currentDate = text.toLocaleDateString('en-US', options);
-  date.textContent = currentDate;
+  const currentDateRu = text.toLocaleDateString('ru-RU', options);
+  if(flague){
+    date.textContent = currentDate;
+  } else {
+    date.textContent = currentDateRu;
+  }
 }
 function getTimeOfDay() {
   const arg = new Date();
@@ -67,6 +90,21 @@ function getTimeOfDay() {
     'morning': [6, 7, 8, 9, 10, 11],
     'afternoon': [12, 13, 14, 15, 16, 17],
     'evening': [18, 19, 20, 21, 22, 23]
+  }
+  for (let k in shedule){
+    if (shedule[k].includes(hours)){
+      return k;
+    }
+  }
+}
+function getTimeOfDayRu() {
+  const arg = new Date();
+  const hours = arg.getHours();
+  const shedule = {
+    'Доброй ночи': [0, 1, 2, 3, 4, 5],
+    'Доброе утро': [6, 7, 8, 9, 10, 11],
+    'Добрый день': [12, 13, 14, 15, 16, 17],
+    'Добрый вечер': [18, 19, 20, 21, 22, 23]
   }
   for (let k in shedule){
     if (shedule[k].includes(hours)){
@@ -98,7 +136,6 @@ function setBg() {
   const timeOfDay = getTimeOfDay();
   let bgNum = String(RandomNum).padStart(2, 0);
   const bgLink = `https://raw.githubusercontent.com/MDViktor/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`;
-
   img.src = bgLink; 
   img.onload = () => {      
     body.style.backgroundImage = `url(${img.src})`;
@@ -123,18 +160,32 @@ function getSlidePrev() {
   }
   setBg();
 }
+
 async function getWeather() {  
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=ee89924f6aa0fe07d38cb882822a69c0&units=metric`;
-  const res = await fetch(url);
+  const urlRu = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=ee89924f6aa0fe07d38cb882822a69c0&units=metric`;
+  let res = await fetch(url);
+  if (flague) {
+    res = await fetch(url);
+  } else {
+    res = await fetch(urlRu);
+  }
   const data = await res.json(); 
+  
   if(res.ok){
     weatherIcon.className = 'weather-icon owf';
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
     weatherError.textContent = '';
     temperature.textContent = `${Math.floor(data.main.temp)}°C`;
     weatherDescription.textContent = data.weather[0].description;
-    wind.textContent = `Wind speed: ${Math.floor(data.wind.speed)} m/s`;
-    humidity.textContent = `Humidity: ${Math.floor(data.main.humidity)}%`;
+    if (flague){
+      wind.textContent = `${language.en.windspeed[0]}${Math.floor(data.wind.speed)}${language.en.windspeed[1]}`;
+      humidity.textContent = `${language.en.humidity[0]}${Math.floor(data.main.humidity)}${language.en.humidity[1]}`;
+    }else{
+      wind.textContent = `${language.ru.windspeed[0]}${Math.floor(data.wind.speed)}${language.ru.windspeed[1]}`;
+      humidity.textContent = `${language.ru.humidity[0]}${Math.floor(data.main.humidity)}${language.ru.humidity[1]}`;
+    }
+    
 
   }
   else{
@@ -150,7 +201,13 @@ async function getWeather() {
 
 async function getQuotes() {  
   const quotes = './js/quotes.json';
-  const res = await fetch(quotes);
+  const quotesRus = './js/quotesRus.json';
+  let res = await fetch(quotes);
+  if (flague){
+    res = await fetch(quotes);
+  } else {
+    res = await fetch(quotesRus);
+  }
   const data = await res.json(); 
   let quoteNum = getRandomNum(0, 102);
   for (let value in data){
@@ -227,6 +284,7 @@ getQuotes();
 showTime();
 setBg();
 switchLanguage();
+elseTranslate();
 
 document.addEventListener('DOMContentLoaded', getWeather);
 slideNext.addEventListener('click', getSlideNext);
@@ -234,6 +292,9 @@ slidePrev.addEventListener('click', getSlidePrev);
 window.addEventListener('beforeunload', setLocalStorage);
 window.addEventListener('load', getLocalStorage);
 city.addEventListener('change', getWeather);
+switcherLanguage.addEventListener('click', getWeather);
+switcherLanguage.addEventListener('click', elseTranslate);
+switcherLanguage.addEventListener('click', getQuotes);
 changeQuote.addEventListener('click', getQuotes)
 play.addEventListener('click', playAudio);
 nextTrack.addEventListener('click', playNext);
