@@ -37,14 +37,17 @@ for (let track of playList){
   playListContainer.append(li);
 }
 const currentTracks = document.querySelectorAll('.play-item');
-audio.addEventListener('loadedmetadata', function(){
-  console.log(Math.ceil(audio.duration))
-})
+
+// audio.addEventListener('loadedmetadata', function(){
+//   console.log(Math.ceil(audio.duration))
+// })
 
 //progressive player
 const timeline = document.querySelector(".timeline");
 const progressBar = document.querySelector(".progress");
-const currentTimeTrack = document.querySelector(".current")
+const currentTimeTrack = document.querySelector(".current");
+const duration = document.querySelector(".length");
+const track = document.querySelector(".track");
 // language
 const switcherLanguage = document.querySelector('.slider.round');
 let flague = true;
@@ -56,6 +59,9 @@ const language = {
     greeting: getTimeOfDayRu(), placeholder: `[Введите имя]`, weatherPlaceholder:`[имя города]`, windspeed: [`Скорость ветра: `, ` м/с`], humidity: [`Влажность: `, `%`], 
   },
 }
+
+
+
 function elseTranslate() {
   if(flague){
     userName.placeholder = language.en.placeholder;
@@ -77,7 +83,6 @@ function showTime() {
   }
   setTimeout(showTime, 1000);
 }
-
 function showDate() {
   const text = new Date();
   const options = {weekday:'long', month: 'long', day: 'numeric'};
@@ -149,7 +154,6 @@ function setBg() {
     body.style.backgroundImage = `url(${img.src})`;
   };
 }
-
 function getSlideNext() {
   if (RandomNum === 20) {
     RandomNum = 1;
@@ -168,7 +172,6 @@ function getSlidePrev() {
   }
   setBg();
 }
-
 async function getWeather() {  
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=ee89924f6aa0fe07d38cb882822a69c0&units=metric`;
   const urlRu = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=ee89924f6aa0fe07d38cb882822a69c0&units=metric`;
@@ -206,7 +209,6 @@ async function getWeather() {
     humidity.textContent = ``;
   }
 }
-
 async function getQuotes() {  
   const quotes = './js/quotes.json';
   const quotesRus = './js/quotesRus.json';
@@ -230,8 +232,6 @@ function audioStyleRemove() {
     }
   });
 }
-
-
 function playAudio() {
   play.classList.toggle('pause');
   isPlay = true;
@@ -239,9 +239,11 @@ function playAudio() {
   audio.currentTime = 0;
   if(play.classList.contains('pause')){
     audio.play();
+    track.textContent = playList[playNum].title;
   } else{
     isPlay = false;
     audio.pause();
+    track.textContent = '';
   }
   currentTracks.forEach(element => {
     if (isPlay){
@@ -275,7 +277,6 @@ function playPrev() {
   }
   playAudio()
 }
-console.log(flague);
 function switchLanguage(){
   switcherLanguage.addEventListener('click', function() {
     switcherLanguage.classList.toggle('ru');
@@ -286,7 +287,6 @@ function switchLanguage(){
     }
   });
 }
-
 timeline.addEventListener("click", e => {
   const timelineWidth = window.getComputedStyle(timeline).width;
   const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
@@ -294,11 +294,33 @@ timeline.addEventListener("click", e => {
 }, false);
 setInterval(() => {
   progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
-  // console.log(audio.onloadedmetadata.currentTime);
-  // currentTimeTrack.textContent = getTimeCodeFromNum(
-  //   audio.onloadedmetadata.currentTime
-  // );
+
+  currentTimeTrack.textContent = getTimeCodeFromNum(
+    audio.currentTime
+  );
 }, 500);
+function getTimeCodeFromNum(num) {
+  let seconds = parseInt(num);
+  let minutes = parseInt(seconds / 60);
+  seconds -= minutes * 60;
+  const hours = parseInt(minutes / 60);
+  minutes -= hours * 60;
+
+  if (hours === 0) return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
+  return `${String(hours).padStart(2, 0)}:${minutes}:${String(
+    seconds % 60
+  ).padStart(2, 0)}`;
+}
+audio.addEventListener(
+  "loadeddata",
+  () => {
+    duration.textContent = getTimeCodeFromNum(
+      audio.duration
+    );
+    // audio.volume = .75;
+  },
+  false
+);
 
 getQuotes();
 showTime();
