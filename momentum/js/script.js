@@ -37,6 +37,14 @@ for (let track of playList){
   playListContainer.append(li);
 }
 const currentTracks = document.querySelectorAll('.play-item');
+audio.addEventListener('loadedmetadata', function(){
+  console.log(Math.ceil(audio.duration))
+})
+
+//progressive player
+const timeline = document.querySelector(".timeline");
+const progressBar = document.querySelector(".progress");
+const currentTimeTrack = document.querySelector(".current")
 // language
 const switcherLanguage = document.querySelector('.slider.round');
 let flague = true;
@@ -228,7 +236,7 @@ function playAudio() {
   play.classList.toggle('pause');
   isPlay = true;
   audio.src = playList[playNum].src;;
-  // audio.currentTime = 0;
+  audio.currentTime = 0;
   if(play.classList.contains('pause')){
     audio.play();
   } else{
@@ -279,6 +287,18 @@ function switchLanguage(){
   });
 }
 
+timeline.addEventListener("click", e => {
+  const timelineWidth = window.getComputedStyle(timeline).width;
+  const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
+  audio.currentTime = timeToSeek;
+}, false);
+setInterval(() => {
+  progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
+  // console.log(audio.onloadedmetadata.currentTime);
+  // currentTimeTrack.textContent = getTimeCodeFromNum(
+  //   audio.onloadedmetadata.currentTime
+  // );
+}, 500);
 
 getQuotes();
 showTime();
