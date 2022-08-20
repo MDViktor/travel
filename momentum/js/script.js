@@ -38,16 +38,29 @@ for (let track of playList){
 }
 const currentTracks = document.querySelectorAll('.play-item');
 
-// audio.addEventListener('loadedmetadata', function(){
-//   console.log(Math.ceil(audio.duration))
-// })
-
 //progressive player
 const timeline = document.querySelector(".timeline");
 const progressBar = document.querySelector(".progress");
 const currentTimeTrack = document.querySelector(".current");
 const duration = document.querySelector(".length");
 const track = document.querySelector(".track");
+const volume = document.querySelector(".volume-button");
+const volumeIcon = document.querySelector(".volume, .icon-on");
+volume.addEventListener("click", () => {
+  const volumeEl = volumeIcon;
+  audio.muted = !audio.muted;
+  if (audio.muted) {
+    volumeEl.classList.remove("icon-on");
+    volumeEl.classList.add("icon-off");
+  } else {
+    volumeEl.classList.add("icon-on");
+    volumeEl.classList.remove("icon-off");
+  }
+});
+
+
+
+
 // language
 const switcherLanguage = document.querySelector('.slider.round');
 let flague = true;
@@ -311,6 +324,13 @@ function getTimeCodeFromNum(num) {
     seconds % 60
   ).padStart(2, 0)}`;
 }
+
+getQuotes();
+showTime();
+setBg();
+switchLanguage();
+elseTranslate();
+
 audio.addEventListener(
   "loadeddata",
   () => {
@@ -321,13 +341,6 @@ audio.addEventListener(
   },
   false
 );
-
-getQuotes();
-showTime();
-setBg();
-switchLanguage();
-elseTranslate();
-
 document.addEventListener('DOMContentLoaded', getWeather);
 slideNext.addEventListener('click', getSlideNext);
 slidePrev.addEventListener('click', getSlidePrev);
