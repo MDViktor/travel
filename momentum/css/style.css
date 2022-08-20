@@ -35,7 +35,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 250px;
+  width: 300px;
   margin: 0px auto 28px;
 }
 
@@ -126,7 +126,7 @@ body {
 }
 
 .volume-container {
-  width: 90px;
+  width: 130px;
   display: flex;
   cursor: pointer;
   align-items: center;
@@ -157,16 +157,16 @@ body {
 }
 
 .volume-slider {
-  width: 50px;
-  height: 10px;
+  width: 100px;
+  height: 15px;
   background: rgb(253, 253, 1);
-  border-radius: 5px;
+  border-radius: 2px;
   box-shadow: 0 0 20px #000a;
   transition: .25s;
 }
 .volume-percentage {
   background: rgb(255, 68, 0);
-  border-radius: 5px;
+  border-radius: 2px;
   height: 100%;
   width: 75%;
 }
