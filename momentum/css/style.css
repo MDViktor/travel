@@ -35,7 +35,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 120px;
+  width: 250px;
   margin: 0px auto 28px;
 }
 
@@ -125,6 +125,56 @@ body {
   background-image: url("../assets/svg/play-next.svg");
 }
 
+.volume-container {
+  width: 90px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.volume-button {
+    display: flex;
+    align-items: center;
+  }
+.volume {
+  transform: scale(1);
+}
+.icon-on {
+  height: 25px;
+  width: 25px;
+  fill: rgb(253, 253, 1);
+  background-image: url(../assets/svg/volume-on.svg);
+  background-size: contain;
+}
+
+.icon-off {
+  height: 25px;
+  width: 25px;
+  fill: rgb(253, 253, 1);
+  background-image: url(../assets/svg/volume-off.svg);
+  background-size: contain;
+}
+
+.volume-slider {
+  width: 50px;
+  height: 10px;
+  background: rgb(253, 253, 1);
+  border-radius: 5px;
+  box-shadow: 0 0 20px #000a;
+  transition: .25s;
+}
+.volume-percentage {
+  background: rgb(255, 68, 0);
+  border-radius: 5px;
+  height: 100%;
+  width: 75%;
+}
+.volume-slider :hover {
+  left: -123px;
+  width: 50px;
+}
+  
 .timeline {
   background: rgb(253, 253, 1);
   width: 300px;
