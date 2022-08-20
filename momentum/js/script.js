@@ -37,7 +37,6 @@ for (let track of playList){
   playListContainer.append(li);
 }
 const currentTracks = document.querySelectorAll('.play-item');
-
 //progressive player
 const timeline = document.querySelector(".timeline");
 const progressBar = document.querySelector(".progress");
@@ -46,21 +45,8 @@ const duration = document.querySelector(".length");
 const track = document.querySelector(".track");
 const volume = document.querySelector(".volume-button");
 const volumeIcon = document.querySelector(".volume, .icon-on");
-volume.addEventListener("click", () => {
-  const volumeEl = volumeIcon;
-  audio.muted = !audio.muted;
-  if (audio.muted) {
-    volumeEl.classList.remove("icon-on");
-    volumeEl.classList.add("icon-off");
-  } else {
-    volumeEl.classList.add("icon-on");
-    volumeEl.classList.remove("icon-off");
-  }
-});
-
-
-
-
+const volumeSlider = document.querySelector(".volume-slider");
+const volumePercentage = document.querySelector(".volume-percentage");
 // language
 const switcherLanguage = document.querySelector('.slider.round');
 let flague = true;
@@ -73,7 +59,7 @@ const language = {
   },
 }
 
-
+//functions
 
 function elseTranslate() {
   if(flague){
@@ -324,13 +310,31 @@ function getTimeCodeFromNum(num) {
     seconds % 60
   ).padStart(2, 0)}`;
 }
-
+function getMute() {
+  const volumeEl = volumeIcon;
+  audio.muted = !audio.muted;
+  if (audio.muted) {
+    volumeEl.classList.remove("icon-on");
+    volumeEl.classList.add("icon-off");
+  } else {
+    volumeEl.classList.add("icon-on");
+    volumeEl.classList.remove("icon-off");
+  }
+}
+function getNewVolume(e) {
+  const sliderWidth = window.getComputedStyle(volumeSlider).width;
+  const newVolume = e.offsetX / parseInt(sliderWidth);
+  audio.volume = newVolume;
+  volumePercentage.style.width = newVolume * 100 + '%';
+}
+// function call
 getQuotes();
 showTime();
 setBg();
 switchLanguage();
 elseTranslate();
 
+// Listeners 
 audio.addEventListener(
   "loadeddata",
   () => {
@@ -354,3 +358,5 @@ changeQuote.addEventListener('click', getQuotes)
 play.addEventListener('click', playAudio);
 nextTrack.addEventListener('click', playNext);
 prevTrack.addEventListener('click', playPrev);
+volume.addEventListener("click", getMute);
+volumeSlider.addEventListener('click', getNewVolume, false);
